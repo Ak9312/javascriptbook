@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Manipulating HTML element with Javascript</title>
+  </head>
+  <body>
+    <div class="output">
+      <h1>Hello</h1>
+      <div class="test"></div>
+      <ul>
+        <li id="one">One</li>
+        <li class="red">Two</li>
+      </ul>
+      <div>Test</div>
+    </div>
+
+    <script>
+      const output = document.querySelector(".output");
+      const mainList = output.querySelector("ul");
+      console.log(mainList.id);
+      let x = document.querySelectorAll("div");
+      for (a = 0; a < x.lenght; a++) {
+        console.log(x[a].tagName);
+        x[a].id = "id" + (a + 1);
+        if (a % 2 == 0) {
+          x[a].style.color = "red";
+        } else {
+          x[a].style.color = "blue";
+        }
+      }
+    </script>
+  </body>
+</html>
