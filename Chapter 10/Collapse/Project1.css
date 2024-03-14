@@ -1,0 +1,15 @@
+.active {
+  display: block !important;
+}
+
+.myText {
+  display: none;
+}
+
+.title {
+  font-size: 1.5em;
+}
+
+.hide {
+  display: none;
+}
