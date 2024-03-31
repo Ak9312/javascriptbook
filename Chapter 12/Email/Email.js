@@ -1,22 +1,26 @@
 let txt1 = document.getElementById("one");
 let txt2 = document.getElementById("two");
-let btn = document.querySelector("button");
-
+let btn = document.querySelector("#addEmail");
+let btn2 = document.querySelector("#getEmail");
+accept = [];
 btn.addEventListener("click", () => {
   const email = /([A-Za-z0-9._-]+@[A-Za-z0-9._-]+\.[A-Za-z0-9]+)\w+/;
-  accept = [];
+
   if (txt1.value.match(email)) {
-    accept.push(txt1.value);
-  }
-  holder = [];
-  for (i = 0; i < accept.length; i++) {
-    let check = accept[i];
-    if (!holder.includes(check)) {
-      holder.push(check);
-   
-
+    if (!accept.includes(txt1.value)) {
+      accept.push(txt1.value);
+      txt1.value = "";
+      console.log("entered email successfully!")
+      return;
     }
-
+    console.log(txt1.value + " already present");
+    return;
+  } else {
+    console.log("please enter valid email");
+    return;
   }
-  txt2.textContent += holder.join(", ")  
 });
+
+btn2.addEventListener("click",()=>{
+  txt2.value = accept.join(',')
+})
