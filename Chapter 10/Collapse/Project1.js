@@ -1,12 +1,15 @@
-var button = document.querySelectorAll("div.title");
-var display = document.querySelectorAll("div.myText");
+var button = document.querySelectorAll(".title");
+var display = document.querySelectorAll(".myText");
 
 button.forEach((buttons) => {
   buttons.addEventListener("click", function display() {
-    console.log("hello");
-  });
+    remove()
+    console.log(buttons.nextElementSibling);
+    buttons.nextElementSibling.classList.toggle("active") });
+  
 });
 
-display.forEach((invis) => {
-  invis.classList.toggle("hide");
-});
+function remove() {display.forEach((invis) => {
+  invis.classList.remove("active");
+})};
+
