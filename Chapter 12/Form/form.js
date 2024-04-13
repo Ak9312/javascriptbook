@@ -21,25 +21,36 @@ bt.addEventListener("click", (event) => {
 
 
   function err(a) {
-    const ero = inputElement.nextElementSibling;
+    const ero = a.nextElementSibling;
     ero.classList.remove("hide");
     a.focus();
   }
 
   const email = /([A-Za-z0-9._-]+@[A-Za-z0-9._-]+\.[A-Za-z0-9]+)\w+/;
   if (!em.value.match(email)) {
-    err(email);
+    err(em);
   }
+
+  let error = false;
 const password = /^([A-Za-z0-9]){3,8}$/ ;
-if (!ps.value.match(password)) {
-  showError("invald password")  
+if (!ps.value.match(password)|| ps.value.length < 3 || ps.value.length > 8) {
+  err(ps); 
   error = true;
 }
 
-fr.forEach((frm)   => {
-form[frm] = input.value;
-})
+document.querySelectorAll('form[name="myform"] input').forEach(input => {
+  form[input.name] = input.value;
+});
 
+
+
+// fr.forEach((frm)   => {
+// form[frm] = input.value;
+// })
+if (!error) {
+  console.log(form);
+  
+}
 
 
 });
