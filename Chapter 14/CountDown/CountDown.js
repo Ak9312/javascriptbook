@@ -6,15 +6,13 @@ let minute = document.querySelector(".minutes");
 let second = document.querySelector(".seconds");
 
 let savedInitialValue = localStorage.getItem("initial");
-let savedCountDown = localStorage.getItem("countdown");
+
 
 if (savedInitialValue != null) {
   date.value = savedInitialValue;
 }
 
-if (savedCountDown != null) {
-  countdownStart(savedCountDown);
-}
+
 
 window.addEventListener("load", () => {
   setInterval(() => {
@@ -23,7 +21,7 @@ window.addEventListener("load", () => {
     localStorage.setItem("initial", initialDate);
     finalDate = new Date().getTime();
     totalTime = selectedDate - finalDate;
-    localStorage.setItem("countdown", totalTime);
+
 
     countdownStart(totalTime);
   }, 1000);
